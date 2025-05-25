@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Desenvolvimento de Habilidades para Gestão Rural e Urbana</title>
+    <meta name="description" content="Capacitação integrada para enfrentar os desafios da administração de ambientes rurais e urbanos no Brasil contemporâneo." />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Open Graph tags -->
+    <meta property="og:title" content="Desenvolvimento de Habilidades para Gestão Rural e Urbana" />
+    <meta property="og:description" content="Capacitação integrada para enfrentar os desafios da administração de ambientes rurais e urbanos no Brasil contemporâneo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rural-urbano.com.br" />
+
+    <style>
+      /* ==================== 
+         Base Styles 
+      ==================== */
+      :root {
+        /* Cores principais do tema */
+        --rural-green: #2E7D32;
+        --urban-gray: #607D8B;
+        --earth-brown: #8D6E63;
+        --light-beige: #F5F5DC;
+        
+        /* Cores complementares */
+        --dark-green: #1B5E20;
+        --dark-gray: #455A64;
+        --dark-brown: #6D4C41;
+        --light-gray: #ECEFF1;
+        --white: #FFFFFF;
+        --black: #212121;
+        --success: #4CAF50;
+        --warning: #FFC107;
+        --error: #F44336;
+        --text-dark: #333333;
+        --text-muted: #757575;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--text-dark);
+        background-color: var(--white);
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Montserrat', sans-serif;
+        margin-bottom: 0.5em;
+        line-height: 1.3;
+        color: var(--black);
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      h4 {
+        font-size: 1.2rem;
+      }
+
+      p {
+        margin-bottom: 1rem;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--black);
+        transition: color 0.3s ease;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      .section {
+        padding: 5rem 0;
+      }
+
+      .section-header {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 3rem;
+      }
+
+      .bg-light {
+        background-color: var(--light-gray);
+      }
+
+      .center-btn {
+        text-align: center;
+        margin-top: 2rem;
+      }
+
+      /* Utilities Classes */
+      .text-rural-green {
+        color: var(--rural-green);
+      }
+
+      .text-urban-gray {
+        color: var(--urban-gray);
+      }
+
+      .text-earth-brown {
+        color: var(--earth-brown);
+      }
+
+      /* ==================== 
+         Buttons 
+      ==================== */
+      .btn {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 500;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .btn-primary {
+        background-color: var(--rural-green);
+        color: var(--white);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--dark-green);
+      }
+
+      .btn-secondary {
+        background-color: var(--white);
+        color: var(--urban-gray);
+        border: 2px solid var(--urban-gray);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--urban-gray);
+        color: var(--white);
+      }
+
+      .btn-dark {
+        background-color: var(--black);
+        color: var(--white);
+      }
+
+      .btn-dark:hover {
+        background-color: #000;
+      }
+
+      .btn-light {
+        background-color: var(--white);
+        color: var(--earth-brown);
+      }
+
+      .btn-light:hover {
+        background-color: var(--light-gray);
+      }
+
+      .btn-block {
+        display: block;
+        width: 100%;
+      }
+
+      .btn-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      /* ==================== 
+         Header & Navigation 
+      ==================== */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: var(--white);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        z-index: 1000;
+        height: 70px;
+        display: flex;
+        align-items: center;
+      }
+
+      .header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .nav-links a {
+        font-weight: 500;
+        position: relative;
+      }
+
+      .nav-links a:hover {
+        color: var(--rural-green);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: var(--rural-green);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--white);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        border-radius: 5px;
+        width: 200px;
+        padding: 0.5rem 0;
+        z-index: 100;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+      }
+
+      .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-menu a {
+        display: block;
+        padding: 0.5rem 1rem;
+        transition: background-color 0.3s ease;
+      }
+
+      .dropdown-menu a:hover {
+        background-color: var(--light-gray);
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .menu-icon {
+        display: none;
+      }
+
+      /* Mobile Navigation */
+      @media (max-width: 768px) {
+        .menu-icon {
+          display: block;
+          cursor: pointer;
+          position: relative;
+          width: 30px;
+          height: 20px;
+        }
+        
+        .menu-icon span {
+          display: block;
+          position: absolute;
+          height: 3px;
+          width: 100%;
+          background: var(--black);
+          border-radius: 3px;
+          opacity: 1;
+          transform: rotate(0deg);
+          transition: 0.3s ease;
+        }
+        
+        .menu-icon span:nth-child(1) {
+          top: 0;
+        }
+        
+        .menu-icon span:nth-child(2) {
+          top: 8px;
+        }
+        
+        .menu-icon span:nth-child(3) {
+          top: 16px;
+        }
+        
+        .menu-toggle:checked + .menu-icon span:nth-child(1) {
+          top: 8px;
+          transform: rotate(135deg);
+        }
+        
+        .menu-toggle:checked + .menu-icon span:nth-child(2) {
+          opacity: 0;
+          left: -60px;
+        }
+        
+        .menu-toggle:checked + .menu-icon span:nth-child(3) {
+          top: 8px;
+          transform: rotate(-135deg);
+        }
+        
+        .nav-links {
+          position: fixed;
+          top: 70px;
+          left: 0;
+          right: 0;
+          background-color: var(--white);
+          box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 1rem;
+          gap: 0;
+          transform: translateY(-150%);
+          transition: transform 0.3s ease;
+          z-index: 999;
+        }
+        
+        .menu-toggle:checked ~ .nav-links {
+          transform: translateY(0);
+        }
+        
+        .nav-links li {
+          width: 100%;
+        }
+        
+        .nav-links a {
+          display: block;
+          padding: 1rem 0;
+          border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .nav-links li:last-child a {
+          border-bottom: none;
+        }
+        
+        .dropdown {
+          position: static;
+        }
+        
+        .dropdown-menu {
+          position: static;
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+          box-shadow: none;
+          width: 100%;
+          padding: 0 0 0 1rem;
+          display: none;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+          display: block;
+        }
+        
+        .dropdown-menu a {
+          padding: 0.5rem 0;
+          border-bottom: none;
+        }
+      }
+
+      /* ==================== 
+         Hero Section 
+      ==================== */
+      .hero {
+        padding-top: 120px;
+        padding-bottom: 120px;
+        background: linear-gradient(135deg, rgba(46, 125, 50, 0.1), rgba(96, 125, 139, 0.1));
+        position: relative;
+      }
+
+      .hero-content {
+        max-width: 700px;
+      }
+
+      .hero h1 {
+        margin-bottom: 1.5rem;
+      }
+
+      .hero p {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+      }
+
+      .hero-wave {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+      }
+
+      /* ==================== 
+         Feature Cards 
+      ==================== */
+      .feature-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .feature-card {
+        background-color: var(--light-beige);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      }
+
+      .feature-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        color: var(--white);
+      }
+
+      .feature-card.rural .feature-icon {
+        background-color: var(--rural-green);
+      }
+
+      .feature-card.urban .feature-icon {
+        background-color: var(--urban-gray);
+      }
+
+      .feature-card.earth .feature-icon {
+        background-color: var(--earth-brown);
+      }
+
+      .card-link {
+        display: inline-flex;
+        align-items: center;
+        font-weight: 500;
+        margin-top: 1rem;
+        position: relative;
+      }
+
+      .card-link::after {
+        content: "→";
+        margin-left: 0.5rem;
+        transition: transform 0.3s ease;
+      }
+
+      .card-link:hover::after {
+        transform: translateX(5px);
+      }
+
+      .card-link.rural {
+        color: var(--rural-green);
+      }
+
+      .card-link.urban {
+        color: var(--urban-gray);
+      }
+
+      .card-link.earth {
+        color: var(--earth-brown);
+      }
+
+      /* ==================== 
+         Skills Section 
+      ==================== */
+      .skill-block {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        margin-bottom: 5rem;
+        align-items: center;
+      }
+
+      .skill-block:last-child {
+        margin-bottom: 0;
+      }
+
+      .skill-block.reverse {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .skill-content h3 {
+        margin-bottom: 1rem;
+      }
+
+      .skill-items {
+        margin-top: 2rem;
+      }
+
+      .skill-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+      }
+
+      .skill-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .skill-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        margin-top: 5px;
+        position: relative;
+      }
+
+      .skill-icon::after {
+        content: "✓";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--white);
+        font-size: 12px;
+      }
+
+      .skill-icon.rural {
+        background-color: var(--rural-green);
+      }
+
+      .skill-icon.urban {
+        background-color: var(--urban-gray);
+      }
+
+      .skill-icon.earth {
+        background-color: var(--earth-brown);
+      }
+
+      .skill-text {
+        margin-left: 1rem;
+      }
+
+      .skill-text h4 {
+        margin-bottom: 0.25rem;
+      }
+
+      .skill-image img {
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+
+      @media (max-width: 900px) {
+        .skill-block,
+        .skill-block.reverse {
+          grid-template-columns: 1fr;
+        }
+        
+        .skill-block.reverse .skill-content {
+          order: 1;
+        }
+        
+        .skill-block.reverse .skill-image {
+          order: 2;
+        }
+      }
+
+      /* ==================== 
+         Resource Cards 
+      ==================== */
+      .resource-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .resource-card {
+        background-color: var(--light-beige);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .resource-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      }
+
+      .resource-img {
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .resource-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .resource-card:hover .resource-img img {
+        transform: scale(1.1);
+      }
+
+      .resource-content {
+        padding: 1.5rem;
+      }
+
+      .resource-tags {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        border-radius: 50px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: var(--white);
+        margin-right: 0.5rem;
+      }
+
+      .tag.rural {
+        background-color: var(--rural-green);
+      }
+
+      .tag.urban {
+        background-color: var(--urban-gray);
+      }
+
+      .tag.earth {
+        background-color: var(--earth-brown);
+      }
+
+      .duration {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+      }
+
+      /* ==================== 
+         Success Cases 
+      ==================== */
+      .success-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        gap: 2rem;
+      }
+
+      .success-card {
+        background-color: var(--white);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .success-img {
+        height: 250px;
+        overflow: hidden;
+      }
+
+      .success-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .success-content {
+        padding: 1.5rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .success-person {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+        padding-top: 1.5rem;
+      }
+
+      .person-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .person-info {
+        margin-left: 1rem;
+      }
+
+      .person-name {
+        font-weight: 500;
+        margin-bottom: 0;
+      }
+
+      .person-role {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        margin-bottom: 0;
+      }
+
+      @media (max-width: 768px) {
+        .success-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ==================== 
+         Blog Section 
+      ==================== */
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .blog-card {
+        background-color: var(--light-beige);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      }
+
+      .blog-img {
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .blog-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .blog-card:hover .blog-img img {
+        transform: scale(1.1);
+      }
+
+      .blog-content {
+        padding: 1.5rem;
+      }
+
+      .blog-meta {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .date {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+      }
+
+      /* ==================== 
+         Contact Section 
+      ==================== */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+
+      .contact-info {
+        padding-right: 2rem;
+      }
+
+      .contact-items {
+        margin: 2rem 0;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-icon {
+        width: 40px;
+        height: 40px;
+        background-color: var(--rural-green);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        color: var(--white);
+        flex-shrink: 0;
+      }
+
+      .contact-text h4 {
+        margin-bottom: 0.25rem;
+      }
+
+      .contact-text p {
+        margin-bottom: 0;
+        color: var(--text-muted);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-link {
+        width: 40px;
+        height: 40px;
+        background-color: var(--black);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        transition: background-color 0.3s ease;
+      }
+
+      .social-link:hover {
+        background-color: var(--rural-green);
+      }
+
+      .contact-form-container {
+        background-color: var(--white);
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      }
+
+      .contact-form {
+        padding: 2rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      input, select, textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: inherit;
+        font-size: inherit;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      input:focus, select:focus, textarea:focus {
+        outline: none;
+        border-color: var(--rural-green);
+        box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.1);
+      }
+
+      @media (max-width: 768px) {
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .contact-info {
+          padding-right: 0;
+        }
+      }
+
+      /* ==================== 
+         Newsletter Section 
+      ==================== */
+      .newsletter {
+        background-color: var(--earth-brown);
+        color: var(--white);
+        padding: 4rem 0;
+      }
+
+      .newsletter-content {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .newsletter h2, 
+      .newsletter p {
+        color: var(--white);
+      }
+
+      .newsletter-form {
+        display: flex;
+        max-width: 500px;
+        margin: 2rem auto;
+        gap: 1rem;
+      }
+
+      .newsletter-form input {
+        flex-grow: 1;
+        border: none;
+        border-radius: 50px;
+        padding: 0.75rem 1.5rem;
+      }
+
+      .newsletter-note {
+        font-size: 0.875rem;
+        opacity: 0.8;
+      }
+
+      @media (max-width: 576px) {
+        .newsletter-form {
+          flex-direction: column;
+        }
+        
+        .newsletter-form button {
+          width: 100%;
+        }
+      }
+
+      /* ==================== 
+         Footer 
+      ==================== */
+      .footer {
+        background-color: #212121;
+        color: #fff;
+        padding: 5rem 0 2rem;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+        margin-bottom: 1rem;
+      }
+
+      .footer-about p {
+        margin-bottom: 1.5rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 0.75rem;
+      }
+
+      .social-icon {
+        width: 36px;
+        height: 36px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        transition: background-color 0.3s ease;
+      }
+
+      .social-icon:hover {
+        background-color: var(--rural-green);
+      }
+
+      .footer h3 {
+        color: var(--white);
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+
+      .footer h3::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 50px;
+        height: 2px;
+        background-color: var(--rural-green);
+      }
+
+      .footer-links ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.7);
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--white);
+      }
+
+      .footer-contact ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .footer-contact li {
+        display: flex;
+        align-items: center;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .footer-contact svg {
+        margin-right: 0.75rem;
+        flex-shrink: 0;
+      }
+
+      .footer-bottom {
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .footer-bottom p {
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 0;
+      }
+
+      .footer-bottom-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .footer-bottom-links a {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.875rem;
+      }
+
+      .footer-bottom-links a:hover {
+        color: var(--white);
+      }
+
+      @media (max-width: 768px) {
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+      /* ==================== 
+         Responsive Adjustments 
+      ==================== */
+      @media (max-width: 1200px) {
+        .container {
+          padding: 0 2rem;
+        }
+      }
+
+      @media (max-width: 992px) {
+        html {
+          font-size: 14px;
+        }
+        
+        .feature-cards,
+        .resource-cards,
+        .blog-grid {
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+      }
+
+      @media (max-width: 576px) {
+        .section {
+          padding: 3rem 0;
+        }
+        
+        .hero {
+          padding-top: 100px;
+          padding-bottom: 80px;
+        }
+        
+        .hero h1 {
+          font-size: 2rem;
+        }
+        
+        .hero p {
+          font-size: 1rem;
+        }
+        
+        .btn-group {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="container">
+        <div class="logo">
+          <a href="#inicio">
+            <span class="text-rural-green">Rural</span>
+            <span class="text-earth-brown">&</span>
+            <span class="text-urban-gray">Urbano</span>
+          </a>
+        </div>
+        
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        
+        <ul class="nav-links">
+          <li><a href="#inicio">Início</a></li>
+          <li class="dropdown">
+            <a href="#habilidades">Habilidades</a>
+            <ul class="dropdown-menu">
+              <li><a href="#habilidades-rurais">Gestão Rural</a></li>
+              <li><a href="#habilidades-urbanas">Gestão Urbana</a></li>
+              <li><a href="#habilidades-integradas">Habilidades Integradas</a></li>
+            </ul>
+          </li>
+          <li><a href="#recursos">Recursos</a></li>
+          <li><a href="#casos">Casos de Sucesso</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="#contato" class="btn btn-primary">Inscrever-se</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <main>
+      <!-- Hero Section -->
+      <section id="inicio" class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <h1>Desenvolvendo Habilidades para Gestão <span class="text-rural-green">Rural</span> e <span class="text-urban-gray">Urbana</span></h1>
+            <p>Capacitação integrada para enfrentar os desafios da administração de ambientes rurais e urbanos no Brasil contemporâneo.</p>
+            <div class="btn-group">
+              <a href="#habilidades" class="btn btn-primary">Explorar Habilidades</a>
+              <a href="#recursos" class="btn btn-secondary">Acessar Recursos</a>
+            </div>
+          </div>
+        </div>
+        <div class="hero-wave">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
+            <path fill="#ffffff" fill-opacity="1" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+          </svg>
+        </div>
+      </section>
+      
+      <!-- About Section -->
+      <section class="about section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Conectando Conhecimentos, Transformando Gestão</h2>
+            <p>Nosso programa desenvolve profissionais capazes de gerenciar com eficiência tanto ambientes rurais quanto urbanos, promovendo a integração sustentável entre esses dois mundos.</p>
+          </div>
+          
+          <div class="feature-cards">
+            <div class="feature-card rural">
+              <div class="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 22L2 22"></path><path d="M22 20C22 13.9 17.5 10 12 10C6.5 10 2 13.9 2 20"></path><path d="M16 6C16 3.8 14.2 2 12 2C9.8 2 8 3.8 8 6"></path><path d="M12 10L12 2"></path></svg>
+              </div>
+              <h3>Gestão Rural</h3>
+              <p>Desenvolvimento de competências para administração eficiente de propriedades rurais, incluindo técnicas agrícolas sustentáveis e gestão de recursos naturais.</p>
+              <a href="#habilidades-rurais" class="card-link">Saiba mais</a>
+            </div>
+            
+            <div class="feature-card urban">
+              <div class="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="12" rx="2"></rect><path d="M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"></path><line x1="12" y1="14" x2="12" y2="14"></line><line x1="7" y1="8" x2="7" y2="8"></line><line x1="9" y1="2" x2="9" y2="4"></line><line x1="15" y1="2" x2="15" y2="4"></line><line x1="12" y1="2" x2="12" y2="4"></line></svg>
+              </div>
+              <h3>Gestão Urbana</h3>
+              <p>Ferramentas e conhecimentos para administração de centros urbanos, com foco em planejamento territorial, mobilidade e serviços públicos eficientes.</p>
+              <a href="#habilidades-urbanas" class="card-link">Saiba mais</a>
+            </div>
+            
+            <div class="feature-card earth">
+              <div class="feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path></svg>
+              </div>
+              <h3>Integração Rural-Urbana</h3>
+              <p>Estratégias para promover a integração harmoniosa entre áreas rurais e urbanas, criando cadeias produtivas sustentáveis e economicamente viáveis.</p>
+              <a href="#habilidades-integradas" class="card-link">Saiba mais</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Skills Section -->
+      <section id="habilidades" class="skills section bg-light">
+        <div class="container">
+          <div class="section-header">
+            <h2>Desenvolva Habilidades Essenciais</h2>
+            <p>Nosso programa abrange competências técnicas e gerenciais para ambos os contextos, preparando profissionais completos para os desafios da gestão contemporânea.</p>
+          </div>
+          
+          <!-- Rural Skills -->
+          <div id="habilidades-rurais" class="skill-block">
+            <div class="skill-content">
+              <h3 class="text-rural-green">Gestão Rural</h3>
+              <p>Capacitação completa para administração eficiente de propriedades rurais, com foco em produtividade, sustentabilidade e inovação.</p>
+              
+              <div class="skill-items">
+                <div class="skill-item">
+                  <div class="skill-icon rural"></div>
+                  <div class="skill-text">
+                    <h4>Técnicas Agrícolas Sustentáveis</h4>
+                    <p>Aprenda métodos modernos de cultivo que preservam recursos naturais.</p>
+                  </div>
+                </div>
+                
+                <div class="skill-item">
+                  <div class="skill-icon rural"></div>
+                  <div class="skill-text">
+                    <h4>Gestão de Recursos Hídricos</h4>
+                    <p>Estratégias para uso consciente da água em propriedades rurais.</p>
+                  </div>
+                </div>
+                
+                <div class="skill-item">
+                  <div class="skill-icon rural"></div>
+                  <div class="skill-text">
+                    <h4>Administração de Propriedades</h4>
+                    <p>Controle financeiro, gestão de pessoal e planejamento estratégico.</p>
+                  </div>
+                </div>
+                
+                <div class="skill-item">
+                  <div class="skill-icon rural"></div>
+                  <div class="skill-text">
+                    <h4>Tecnologia Aplicada ao Campo</h4>
+                    <p>Uso de inovações tecnológicas para aumentar a produtividade rural.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="skill-image">
+              <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Fazenda com práticas agrícolas sustentáveis">
+            </div>
+          </div>
+          
+          <!-- Urban Skills -->
+          <div id="habilidades-urbanas" class="skill-block reverse">
+            <div class="skill-content">
+              <h3 class="text-urban-gray">Gestão Urbana</h3>
+              <p>Competências para planejar e administrar ambientes urbanos com eficiência, considerando aspectos sociais, ambientais e econômicos.</p>
+              
+              <div class="skill-items">
+                <div class="skill-item">
+                  <div class="skill-icon urban"></div>
+                  <div class="skill-text">
+                    <h4>Planejamento Urbano Integrado</h4>
+                    <p>Desenvolvimento de planos diretores e estratégias de crescimento ordenado.</p>
+                  </div>
+                </div>
+                
+                <div class="skill-item">
+                  <div class="skill-icon urban"></div>
+                  <div class="skill-text">
+                    <h4>Mobilidade e Transporte</h4>
+                    <p>Soluções para sistemas de transporte eficientes e sustentáveis.</p>
+                  </div>
+                </div>
+                
+                <div class="skill-item">
+                  <div class="skill-icon urban"></div>
+                  <div class="skill-text">
+                    <h4>Gestão de Serviços Públicos</h4>
+                    <p>Administração eficiente de serviços essenciais para a população urbana.</p>
+                  </div>
+                </div>
+                
+                <div class="skill-item">
+                  <div class="skill-icon urban"></div>
+                  <div class="skill-text">
+                    <h4>Cidades Inteligentes</h4>
+                    <p>Implementação de tecnologias para otimização da gestão urbana.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="skill-image">
+              <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Paisagem urbana moderna com espaços verdes">
+            </div>
+          </div>
+          
+          <!-- Integrated Skills -->
+          <div id="habilidades-integradas" class="skill-block">
+            <div class="skill-content">
+              <h3 class="text-earth-brown">Habilidades Integradas</h3>
+              <p>Capacitação para desenvolver projetos que conectam os ambientes rural e urbano, criando sinergias e soluções sustentáveis para ambos.</p>
+              
+              <div class="skill-items">
+                <div class="skill-item">
+                  <div class="skill-icon earth"></div>
+                  <div class="skill-text">
+                    <h4>Cadeias Produtivas Integradas</h4>
+                    <p>Desenvolvimento de sistemas que conectam produção rural e mercados urbanos.</p>
+                  </div>
+                </div>
+                
+                <div class="skill-item">
+                  <div class="skill-icon earth"></div>
+                  <div class="skill-text">
+                    <h4>Turismo Rural e Ecoturismo</h4>
+                    <p>Planejamento de atividades que valorizam o campo e atraem visitantes urbanos.</p>
+                  </div>
+                </div>
+                
+                <div class="skill-item">
+                  <div class="skill-icon earth"></div>
+                  <div class="skill-text">
+                    <h4>Logística e Distribuição</h4>
+                    <p>Estratégias para conectar de forma eficiente produtores rurais e consumidores urbanos.</p>
+                  </div>
+                </div>
+                
+                <div class="skill-item">
+                  <div class="skill-icon earth"></div>
+                  <div class="skill-text">
+                    <h4>Planejamento Regional</h4>
+                    <p>Desenvolvimento de estratégias que integram áreas rurais e urbanas em uma mesma região.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="skill-image">
+              <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Paisagem mostrando transição entre áreas rurais e urbanas">
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Resources Section -->
+      <section id="recursos" class="resources section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Recursos Educacionais</h2>
+            <p>Disponibilizamos materiais de alta qualidade para aprofundar seus conhecimentos em gestão rural e urbana.</p>
+          </div>
+          
+          <div class="resource-cards">
+            <div class="resource-card">
+              <div class="resource-img">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="Fundamentos da Gestão Rural">
+              </div>
+              <div class="resource-content">
+                <div class="resource-tags">
+                  <span class="tag rural">Curso Online</span>
+                  <span class="duration">12 horas</span>
+                </div>
+                <h3>Fundamentos da Gestão Rural</h3>
+                <p>Aprenda os princípios básicos para administrar propriedades rurais com eficiência e sustentabilidade.</p>
+                <a href="#" class="card-link rural">Acessar curso</a>
+              </div>
+            </div>
+            
+            <div class="resource-card">
+              <div class="resource-img">
+                <img src="https://images.unsplash.com/photo-1576153192396-180ecef2a715?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="Planejamento Urbano Sustentável">
+              </div>
+              <div class="resource-content">
+                <div class="resource-tags">
+                  <span class="tag urban">E-book</span>
+                  <span class="duration">75 páginas</span>
+                </div>
+                <h3>Planejamento Urbano Sustentável</h3>
+                <p>Guia completo com metodologias para desenvolvimento de cidades mais equilibradas e eficientes.</p>
+                <a href="#" class="card-link urban">Baixar e-book</a>
+              </div>
+            </div>
+            
+            <div class="resource-card">
+              <div class="resource-img">
+                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="Integração de Cadeias Produtivas">
+              </div>
+              <div class="resource-content">
+                <div class="resource-tags">
+                  <span class="tag earth">Webinar</span>
+                  <span class="duration">90 minutos</span>
+                </div>
+                <h3>Integração de Cadeias Produtivas</h3>
+                <p>Apresentação sobre como conectar produtores rurais e mercados urbanos de forma eficiente.</p>
+                <a href="#" class="card-link earth">Assistir gravação</a>
+              </div>
+            </div>
+            
+            <div class="resource-card">
+              <div class="resource-img">
+                <img src="https://images.unsplash.com/photo-1580674684081-7617fbf3d745?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="Tecnologias para Agricultura 4.0">
+              </div>
+              <div class="resource-content">
+                <div class="resource-tags">
+                  <span class="tag rural">Curso Online</span>
+                  <span class="duration">8 horas</span>
+                </div>
+                <h3>Tecnologias para Agricultura 4.0</h3>
+                <p>Conheça as mais recentes inovações tecnológicas aplicadas à produção agrícola moderna.</p>
+                <a href="#" class="card-link rural">Acessar curso</a>
+              </div>
+            </div>
+            
+            <div class="resource-card">
+              <div class="resource-img">
+                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="Cidades Inteligentes no Brasil">
+              </div>
+              <div class="resource-content">
+                <div class="resource-tags">
+                  <span class="tag urban">Podcast</span>
+                  <span class="duration">10 episódios</span>
+                </div>
+                <h3>Cidades Inteligentes no Brasil</h3>
+                <p>Série de podcasts sobre implementação de tecnologias para gestão urbana mais eficiente.</p>
+                <a href="#" class="card-link urban">Ouvir podcast</a>
+              </div>
+            </div>
+            
+            <div class="resource-card">
+              <div class="resource-img">
+                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="Planejamento Regional Integrado">
+              </div>
+              <div class="resource-content">
+                <div class="resource-tags">
+                  <span class="tag earth">Workshop</span>
+                  <span class="duration">Presencial</span>
+                </div>
+                <h3>Planejamento Regional Integrado</h3>
+                <p>Workshop prático para desenvolvimento de planos que integram áreas rurais e urbanas.</p>
+                <a href="#" class="card-link earth">Ver próximas datas</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="center-btn">
+            <a href="#" class="btn btn-dark">Ver todos os recursos</a>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Success Cases Section -->
+      <section id="casos" class="success-cases section bg-light">
+        <div class="container">
+          <div class="section-header">
+            <h2>Casos de Sucesso</h2>
+            <p>Conheça histórias de profissionais e projetos que transformaram a gestão rural e urbana aplicando as habilidades integradas.</p>
+          </div>
+          
+          <div class="success-grid">
+            <div class="success-card">
+              <div class="success-img">
+                <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500" alt="Cooperativa Agroecológica Serra Verde">
+              </div>
+              <div class="success-content">
+                <div class="success-tags">
+                  <span class="tag rural">Gestão Rural</span>
+                </div>
+                <h3>Cooperativa Agroecológica Serra Verde</h3>
+                <p>Pequenos produtores se uniram para implementar técnicas sustentáveis de produção e criar canais diretos de distribuição para mercados urbanos, aumentando sua renda em 45% em dois anos.</p>
+                <div class="success-person">
+                  <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100" alt="João Silva" class="person-img">
+                  <div class="person-info">
+                    <p class="person-name">João Silva</p>
+                    <p class="person-role">Presidente da Cooperativa</p>
+                  </div>
+                </div>
+                <a href="#" class="card-link rural">Ler história completa</a>
+              </div>
+            </div>
+            
+            <div class="success-card">
+              <div class="success-img">
+                <img src="https://pixabay.com/get/g837ce014c0d6f291b7be0b63bc1c290384f0a7e81803ad336abd5ff5528fd21849353ec9eb16e63ac0b8f43059407941f33007cdb931761f280e41377e0deb12_1280.jpg" alt="Projeto Cidade Verde">
+              </div>
+              <div class="success-content">
+                <div class="success-tags">
+                  <span class="tag urban">Gestão Urbana</span>
+                </div>
+                <h3>Projeto Cidade Verde</h3>
+                <p>Iniciativa municipal que transformou terrenos abandonados em hortas urbanas comunitárias, produzindo alimentos frescos e criando espaços verdes em áreas urbanas densas.</p>
+                <div class="success-person">
+                  <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100" alt="Ana Oliveira" class="person-img">
+                  <div class="person-info">
+                    <p class="person-name">Ana Oliveira</p>
+                    <p class="person-role">Coordenadora do Projeto</p>
+                  </div>
+                </div>
+                <a href="#" class="card-link urban">Ler história completa</a>
+              </div>
+            </div>
+            
+            <div class="success-card">
+              <div class="success-img">
+                <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500" alt="Rede de Feiras do Produtor">
+              </div>
+              <div class="success-content">
+                <div class="success-tags">
+                  <span class="tag earth">Integração Rural-Urbana</span>
+                </div>
+                <h3>Rede de Feiras do Produtor</h3>
+                <p>Sistema de feiras itinerantes que conecta diretamente produtores rurais aos consumidores urbanos, eliminando intermediários e garantindo produtos mais frescos a preços justos.</p>
+                <div class="success-person">
+                  <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100" alt="Carlos Mendes" class="person-img">
+                  <div class="person-info">
+                    <p class="person-name">Carlos Mendes</p>
+                    <p class="person-role">Coordenador da Rede</p>
+                  </div>
+                </div>
+                <a href="#" class="card-link earth">Ler história completa</a>
+              </div>
+            </div>
+            
+            <div class="success-card">
+              <div class="success-img">
+                <img src="https://images.unsplash.com/photo-1607688387751-c1e95ae09a42?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500" alt="Plataforma Digital AgroConecta">
+              </div>
+              <div class="success-content">
+                <div class="success-tags">
+                  <span class="tag earth">Integração Rural-Urbana</span>
+                  <span class="tag urban">Tecnologia</span>
+                </div>
+                <h3>Plataforma Digital AgroConecta</h3>
+                <p>Aplicativo que conecta pequenos produtores rurais diretamente a restaurantes e consumidores urbanos, criando um sistema logístico eficiente para produtos frescos e orgânicos.</p>
+                <div class="success-person">
+                  <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100" alt="Mariana Costa" class="person-img">
+                  <div class="person-info">
+                    <p class="person-name">Mariana Costa</p>
+                    <p class="person-role">CEO da AgroConecta</p>
+                  </div>
+                </div>
+                <a href="#" class="card-link earth">Ler história completa</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="center-btn">
+            <a href="#" class="btn btn-dark">Ver mais casos de sucesso</a>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Blog Section -->
+      <section id="blog" class="blog section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Blog</h2>
+            <p>Compartilhamos conhecimentos e novidades sobre gestão rural e urbana através de artigos elaborados por especialistas.</p>
+          </div>
+          
+          <div class="blog-grid">
+            <div class="blog-card">
+              <div class="blog-img">
+                <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="5 Técnicas de Agricultura Regenerativa para Pequenas Propriedades">
+              </div>
+              <div class="blog-content">
+                <div class="blog-meta">
+                  <span class="tag rural">Gestão Rural</span>
+                  <span class="date">12 Maio, 2023</span>
+                </div>
+                <h3>5 Técnicas de Agricultura Regenerativa para Pequenas Propriedades</h3>
+                <p>Descubra como implementar práticas que restauram o solo e aumentam a produtividade em propriedades de pequeno porte.</p>
+                <a href="#" class="card-link rural">Ler artigo completo</a>
+              </div>
+            </div>
+            
+            <div class="blog-card">
+              <div class="blog-img">
+                <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="Mobilidade Urbana Sustentável: Desafios e Soluções para Cidades Brasileiras">
+              </div>
+              <div class="blog-content">
+                <div class="blog-meta">
+                  <span class="tag urban">Gestão Urbana</span>
+                  <span class="date">28 Abril, 2023</span>
+                </div>
+                <h3>Mobilidade Urbana Sustentável: Desafios e Soluções para Cidades Brasileiras</h3>
+                <p>Análise dos principais desafios e propostas inovadoras para melhorar a mobilidade nas cidades.</p>
+                <a href="#" class="card-link urban">Ler artigo completo</a>
+              </div>
+            </div>
+            
+            <div class="blog-card">
+              <div class="blog-img">
+                <img src="https://images.unsplash.com/photo-1492496913980-501348b61469?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400" alt="Encurtando Caminhos: Como Otimizar a Cadeia de Suprimentos do Campo à Cidade">
+              </div>
+              <div class="blog-content">
+                <div class="blog-meta">
+                  <span class="tag earth">Integração</span>
+                  <span class="date">15 Abril, 2023</span>
+                </div>
+                <h3>Encurtando Caminhos: Como Otimizar a Cadeia de Suprimentos do Campo à Cidade</h3>
+                <p>Estratégias para criar cadeias produtivas mais eficientes, reduzindo custos e desperdícios.</p>
+                <a href="#" class="card-link earth">Ler artigo completo</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="center-btn">
+            <a href="#" class="btn btn-dark">Ver todos os artigos</a>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Contact Section -->
+      <section id="contato" class="contact section bg-light">
+        <div class="container">
+          <div class="contact-grid">
+            <div class="contact-info">
+              <h2>Entre em Contato</h2>
+              <p>Estamos à disposição para esclarecer dúvidas, receber sugestões ou discutir possíveis parcerias para desenvolvimento de habilidades em gestão rural e urbana.</p>
+              
+              <div class="contact-items">
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  </div>
+                  <div class="contact-text">
+                    <h4>Email</h4>
+                    <p>contato@ruralurbano.com.br</p>
+                  </div>
+                </div>
+                
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  </div>
+                  <div class="contact-text">
+                    <h4>Telefone</h4>
+                    <p>(41) 3456-7890</p>
+                  </div>
+                </div>
+                
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  </div>
+                  <div class="contact-text">
+                    <h4>Endereço</h4>
+                    <p>Cipriano Barata de Almeida 205 Curitiba, PR</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="social-links">
+                <a href="#" class="social-link">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                </a>
+                <a href="#" class="social-link">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+                <a href="#" class="social-link">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+                <a href="#" class="social-link">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                </a>
+              </div>
+            </div>
+            
+            <div class="contact-form-container">
+              <div class="contact-form">
+                <h3>Envie sua Mensagem</h3>
+                <form>
+                  <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" name="name" placeholder="Seu nome completo" required>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" required>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="subject">Assunto</label>
+                    <select id="subject" name="subject" required>
+                      <option value="" selected disabled>Selecione um assunto</option>
+                      <option value="info">Informações sobre cursos</option>
+                      <option value="partnership">Proposta de parceria</option>
+                      <option value="support">Suporte técnico</option>
+                      <option value="other">Outro assunto</option>
+                    </select>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Digite sua mensagem aqui..." required></textarea>
+                  </div>
+                  
+                  <button type="submit" class="btn btn-primary btn-block">Enviar Mensagem</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Newsletter Section -->
+      <section class="newsletter section">
+        <div class="container">
+          <div class="newsletter-content">
+            <h2>Assine Nossa Newsletter</h2>
+            <p>Receba novidades, artigos e informações sobre cursos e eventos relacionados à gestão rural e urbana diretamente no seu email.</p>
+            
+            <form class="newsletter-form">
+              <input type="email" placeholder="Seu melhor email" required>
+              <button type="submit" class="btn btn-light">Assinar Newsletter</button>
+            </form>
+            
+            <p class="newsletter-note">Respeitamos sua privacidade. Você pode cancelar a inscrição a qualquer momento.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-about">
+            <div class="footer-logo">
+              <span class="text-rural-green">Rural</span>
+              <span class="text-earth-brown">&</span>
+              <span class="text-urban-gray">Urbano</span>
+            </div>
+            <p>Desenvolvendo habilidades integradas para gestão eficiente de ambientes rurais e urbanos.</p>
+            <div class="footer-social">
+              <a href="#" class="social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+              </a>
+              <a href="#" class="social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+              <a href="#" class="social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </a>
+              <a href="#" class="social-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+              </a>
+            </div>
+          </div>
+          
+          <div class="footer-links">
+            <h3>Links Rápidos</h3>
+            <ul>
+              <li><a href="#inicio">Início</a></li>
+              <li><a href="#habilidades">Habilidades</a></li>
+              <li><a href="#recursos">Recursos</a></li>
+              <li><a href="#casos">Casos de Sucesso</a></li>
+              <li><a href="#blog">Blog</a></li>
+              <li><a href="#contato">Contato</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-links">
+            <h3>Recursos</h3>
+            <ul>
+              <li><a href="#">Cursos Online</a></li>
+              <li><a href="#">E-books Gratuitos</a></li>
+              <li><a href="#">Webinars</a></li>
+              <li><a href="#">Podcasts</a></li>
+              <li><a href="#">Workshops</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-contact">
+            <h3>Contato</h3>
+            <ul>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <span>contato@ruralurbano.com.br</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <span>(41) 3456-7890</span>
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>205 R. Cipriano Barata de Almeida Curitiba - Paraná</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p>&copy; <span id="current-year">2025</span> Rural & Urbano. Colegio Padre Claudio Morelli - Projeto Agrinho.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Política de Privacidade</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Atualiza o ano no rodapé
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
